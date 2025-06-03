@@ -11,4 +11,9 @@
     <Folder Include="Repositories\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DeliveryScheduler.Application\DeliveryScheduler.Application.csproj" />
+    <ProjectReference Include="..\DeliveryScheduler.Domain\DeliveryScheduler.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
