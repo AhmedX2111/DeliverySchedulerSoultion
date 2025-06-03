@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DeliveryScheduler.Domain.Interfaces
+namespace DeliveryScheduler.Application.Interfaces
 {
 	public interface IDeliverySlotService
 	{
