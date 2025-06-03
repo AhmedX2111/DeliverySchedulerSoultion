@@ -12,6 +12,15 @@ builder.Services.AddSingleton<IProductRepository, InMemoryProductRepository>();
 builder.Services.AddSingleton<IDeliverySlotService, DeliverySlotService>();
 builder.Services.AddScoped<GetAvailableDeliverySlots>();
 
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy("AllowAngularDevServer",
+		builder => builder
+			.WithOrigins("http://localhost:4200") // Angular dev server
+			.AllowAnyMethod()
+			.AllowAnyHeader());
+});
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -27,7 +36,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
+
+app.UseCors("AllowAngularDevServer");
 
 app.UseAuthorization();
 
